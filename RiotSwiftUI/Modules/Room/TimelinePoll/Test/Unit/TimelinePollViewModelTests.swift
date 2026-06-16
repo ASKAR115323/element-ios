@@ -8,7 +8,7 @@
 import Combine
 import XCTest
 
-@testable import RiotSwiftUI
+@testable import ElementSwiftUI
 
 class TimelinePollViewModelTests: XCTestCase {
     var viewModel: TimelinePollViewModel!

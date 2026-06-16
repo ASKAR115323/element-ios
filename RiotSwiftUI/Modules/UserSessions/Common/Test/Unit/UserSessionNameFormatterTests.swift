@@ -7,7 +7,7 @@
 
 import XCTest
 
-@testable import RiotSwiftUI
+@testable import ElementSwiftUI
 
 class UserSessionNameFormatterTests: XCTestCase {
     func testSessionDisplayNameTrumpsDeviceTypeName() {

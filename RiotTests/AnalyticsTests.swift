@@ -12,8 +12,8 @@ import AnalyticsEvents
 class AnalyticsTests: XCTestCase {
     func testAnalyticsPromptNewUser() {
         // Given a fresh install of the app (with neither PostHog nor Matomo analytics having been set).
-        RiotSettings.defaults.removeObject(forKey: RiotSettings.UserDefaultsKeys.enableAnalytics)
-        RiotSettings.defaults.removeObject(forKey: RiotSettings.UserDefaultsKeys.matomoAnalytics)
+        ElementSettings.defaults.removeObject(forKey: ElementSettings.UserDefaultsKeys.enableAnalytics)
+        ElementSettings.defaults.removeObject(forKey: ElementSettings.UserDefaultsKeys.matomoAnalytics)
         
         // When the user is prompted for analytics.
         let showPrompt = Analytics.shared.shouldShowAnalyticsPrompt
@@ -26,8 +26,8 @@ class AnalyticsTests: XCTestCase {
     
     func testAnalyticsPromptUpgradeFromMatomo() {
         // Given an existing install of the app where the user previously accepted Matomo analytics
-        RiotSettings.defaults.removeObject(forKey: RiotSettings.UserDefaultsKeys.enableAnalytics)
-        RiotSettings.defaults.set(true, forKey: RiotSettings.UserDefaultsKeys.matomoAnalytics)
+        ElementSettings.defaults.removeObject(forKey: ElementSettings.UserDefaultsKeys.enableAnalytics)
+        ElementSettings.defaults.set(true, forKey: ElementSettings.UserDefaultsKeys.matomoAnalytics)
         
         // When the user is prompted for analytics
         let showPrompt = Analytics.shared.shouldShowAnalyticsPrompt
@@ -40,8 +40,8 @@ class AnalyticsTests: XCTestCase {
     
     func testAnalyticsPromptUserDeclinedMatomo() {
         // Given an existing install of the app where the user previously declined Matomo analytics
-        RiotSettings.defaults.removeObject(forKey: RiotSettings.UserDefaultsKeys.enableAnalytics)
-        RiotSettings.defaults.set(false, forKey: RiotSettings.UserDefaultsKeys.matomoAnalytics)
+        ElementSettings.defaults.removeObject(forKey: ElementSettings.UserDefaultsKeys.enableAnalytics)
+        ElementSettings.defaults.set(false, forKey: ElementSettings.UserDefaultsKeys.matomoAnalytics)
         
         // When the user is prompted for analytics
         let showPrompt = Analytics.shared.shouldShowAnalyticsPrompt
@@ -54,7 +54,7 @@ class AnalyticsTests: XCTestCase {
     
     func testAnalyticsPromptUserAcceptedPostHog() {
         // Given an existing install of the app where the user previously accepted PostHog
-        RiotSettings.defaults.set(true, forKey: RiotSettings.UserDefaultsKeys.enableAnalytics)
+        ElementSettings.defaults.set(true, forKey: ElementSettings.UserDefaultsKeys.enableAnalytics)
         
         // When the user is prompted for analytics
         let showPrompt = Analytics.shared.shouldShowAnalyticsPrompt

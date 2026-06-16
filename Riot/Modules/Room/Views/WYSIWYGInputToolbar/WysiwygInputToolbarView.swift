@@ -236,14 +236,14 @@ class WysiwygInputToolbarView: MXKRoomInputToolbarView, NibLoadable, HtmlRoomInp
               let permalinkReplacer else { return }
 
         viewModel = ComposerViewModel(
-            initialViewState: ComposerViewState(textFormattingEnabled: RiotSettings.shared.enableWysiwygTextFormatting,
+            initialViewState: ComposerViewState(textFormattingEnabled: ElementSettings.shared.enableWysiwygTextFormatting,
                                                 isLandscapePhone: isLandscapePhone,
                                                 bindings: ComposerBindings(focused: false)))
 
         viewModel.callback = { [weak self] result in
             self?.handleViewModelResult(result)
         }
-        wysiwygViewModel.plainTextMode = !RiotSettings.shared.enableWysiwygTextFormatting
+        wysiwygViewModel.plainTextMode = !ElementSettings.shared.enableWysiwygTextFormatting
         wysiwygViewModel.mentionReplacer = permalinkReplacer
 
         inputAccessoryViewForKeyboard = UIView(frame: .zero)

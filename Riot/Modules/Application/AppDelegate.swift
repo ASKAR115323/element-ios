@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: Public
     
-    /// Call the Riot legacy AppDelegate
+    /// Call the Element legacy AppDelegate
     @objc class func theDelegate() -> LegacyAppDelegate {
         guard let legacyAppDelegate = LegacyAppDelegate.the() else {
             fatalError("[AppDelegate] theDelegate property should not be nil")

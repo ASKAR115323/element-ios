@@ -26,7 +26,7 @@ class UserLocationServiceProvider {
         self.setupOrTeardownLocationServices()
         
         // Listen to lab flag changes
-        self.registerRiotSettingsNotifications()
+        self.registerElementSettingsNotifications()
     }
     
     // MARK: - Public
@@ -95,7 +95,7 @@ class UserLocationServiceProvider {
         
         self.unregisterUserSessionsServiceNotifications()
         
-        if RiotSettings.shared.enableLiveLocationSharing {
+        if ElementSettings.shared.enableLiveLocationSharing {
             self.setupUserLocationServiceForAllUsers()
             self.registerUserSessionsServiceNotifications()
         } else {
@@ -162,11 +162,11 @@ class UserLocationServiceProvider {
         self.tearDownUserLocationService(for: userId)
     }
     
-    // MARK: - RiotSettings
+    // MARK: - ElementSettings
     
-    private func registerRiotSettingsNotifications() {
+    private func registerElementSettingsNotifications() {
         
-        NotificationCenter.default.addObserver(self, selector: #selector(riotSettingsDidUpdateLiveLocationSharingActivation(_:)), name: RiotSettings.didUpdateLiveLocationSharingActivation, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(riotSettingsDidUpdateLiveLocationSharingActivation(_:)), name: ElementSettings.didUpdateLiveLocationSharingActivation, object: nil)
     }
     
     @objc private func riotSettingsDidUpdateLiveLocationSharingActivation(_ notification: Notification) {

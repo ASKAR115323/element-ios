@@ -38,7 +38,7 @@ final class ServiceTermsModalCoordinator: NSObject, ServiceTermsModalCoordinator
     
     // MARK: - Setup
     init(session: MXSession, baseUrl: String, serviceType: MXServiceType, accessToken: String) {
-        self.navigationRouter = NavigationRouter(navigationController: RiotNavigationController())
+        self.navigationRouter = NavigationRouter(navigationController: ElementNavigationController())
         self.session = session
         self.serviceTerms = MXServiceTerms(baseUrl: baseUrl, serviceType: serviceType, matrixSession: session, accessToken: accessToken)
     }

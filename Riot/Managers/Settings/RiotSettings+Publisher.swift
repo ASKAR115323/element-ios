@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-extension RiotSettings {
+extension ElementSettings {
     func publisher(for key: String) -> AnyPublisher<Notification, Never> {
         NotificationCenter.default.publisher(for: .userDefaultValueUpdated)
             .filter({ $0.object as? String == key })

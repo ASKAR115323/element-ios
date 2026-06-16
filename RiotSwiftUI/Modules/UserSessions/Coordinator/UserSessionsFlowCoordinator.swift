@@ -323,7 +323,7 @@ final class UserSessionsFlowCoordinator: NSObject, Coordinator, Presentable {
         }
         
         add(childCoordinator: coordinator)
-        let modalRouter = NavigationRouter(navigationController: RiotNavigationController())
+        let modalRouter = NavigationRouter(navigationController: ElementNavigationController())
         modalRouter.setRootModule(coordinator)
         coordinator.start()
         modalRouter.toPresentable().presentationController?.delegate = self

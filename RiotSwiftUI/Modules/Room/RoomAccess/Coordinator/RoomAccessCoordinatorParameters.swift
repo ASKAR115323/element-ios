@@ -39,6 +39,6 @@ struct RoomAccessCoordinatorParameters {
         self.room = room
         self.parentSpaceId = parentSpaceId
         self.allowsRoomUpgrade = allowsRoomUpgrade
-        self.navigationRouter = navigationRouter ?? NavigationRouter(navigationController: RiotNavigationController())
+        self.navigationRouter = navigationRouter ?? NavigationRouter(navigationController: ElementNavigationController())
     }
 }

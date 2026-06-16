@@ -58,7 +58,7 @@ final class CreateRoomCoordinator: CreateRoomCoordinatorType {
     // MARK: - Setup
     
     init(parameters: CreateRoomCoordinatorParameter) {
-        self.navigationRouter = NavigationRouter(navigationController: RiotNavigationController())
+        self.navigationRouter = NavigationRouter(navigationController: ElementNavigationController())
         let segmentedController = SegmentedController.instantiate()
         segmentedController.title = VectorL10n.spacesAddRoom
         self.tabRouter = SegmentedRouter(segmentedController: segmentedController)

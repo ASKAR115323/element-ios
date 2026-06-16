@@ -27,7 +27,7 @@ final class KeyBackupSetupCoordinator: KeyBackupSetupCoordinatorType {
     // MARK: - Setup
     
     init(session: MXSession, isStartedFromSignOut: Bool) {
-        self.navigationRouter = NavigationRouter(navigationController: RiotNavigationController())
+        self.navigationRouter = NavigationRouter(navigationController: ElementNavigationController())
         self.session = session
         self.isStartedFromSignOut = isStartedFromSignOut
     }    

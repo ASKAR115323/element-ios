@@ -31,8 +31,8 @@ public extension Bundle {
         return Bundle(url: lprojURL)
     }
     
-    /// Whether or not the bundle is the RiotShareExtension.
+    /// Whether or not the bundle is the ElementShareExtension.
     var isShareExtension: Bool {
-        bundleURL.lastPathComponent.contains("RiotShareExtension.appex")
+        bundleURL.lastPathComponent.contains("ElementShareExtension.appex")
     }
 }

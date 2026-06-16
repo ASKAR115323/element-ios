@@ -33,7 +33,7 @@ final class UserOtherSessionsCoordinator: Coordinator, Presentable {
                                                    filter: parameters.filter,
                                                    title: parameters.title,
                                                    showDeviceLogout: parameters.showDeviceLogout,
-                                                   settingsService: RiotSettings.shared)
+                                                   settingsService: ElementSettings.shared)
         let view = UserOtherSessions(viewModel: viewModel.context)
         userOtherSessionsViewModel = viewModel
         userOtherSessionsHostingController = VectorHostingController(rootView: view)

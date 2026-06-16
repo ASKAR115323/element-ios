@@ -36,7 +36,7 @@ class RoomTimelineConfiguration: NSObject {
     }
     
     convenience override init() {
-        let styleIdentifier = RiotSettings.shared.roomTimelineStyleIdentifier
+        let styleIdentifier = ElementSettings.shared.roomTimelineStyleIdentifier
         self.init(styleIdentifier: styleIdentifier)
     }
     

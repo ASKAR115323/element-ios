@@ -48,7 +48,7 @@ final class SpaceSelectorBottomSheetCoordinator: NSObject, Coordinator, Presenta
     // MARK: - Setup
     
     init(parameters: SpaceSelectorBottomSheetCoordinatorParameters,
-         navigationRouter: NavigationRouterType = NavigationRouter(navigationController: RiotNavigationController())) {
+         navigationRouter: NavigationRouterType = NavigationRouter(navigationController: ElementNavigationController())) {
         self.parameters = parameters
         self.navigationRouter = navigationRouter
         spaceIdStack = []

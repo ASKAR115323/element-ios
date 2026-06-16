@@ -89,7 +89,7 @@ final class KeyVerificationCoordinator: KeyVerificationCoordinatorType {
     ///   - navigationRouter: Existing NavigationRouter from which present the flow (optional).
     ///   - cancellable: Whether key verification process can be cancelled.
     init(session: MXSession, flow: KeyVerificationFlow, navigationRouter: NavigationRouterType? = nil, cancellable: Bool) {
-        self.navigationRouter = navigationRouter ?? NavigationRouter(navigationController: RiotNavigationController())
+        self.navigationRouter = navigationRouter ?? NavigationRouter(navigationController: ElementNavigationController())
         
         self.session = session
         self.verificationFlow = flow

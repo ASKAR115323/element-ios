@@ -18,6 +18,6 @@ struct TemplateRoomsCoordinatorParameters {
     init(session: MXSession,
          navigationRouter: NavigationRouterType? = nil) {
         self.session = session
-        self.navigationRouter = navigationRouter ?? NavigationRouter(navigationController: RiotNavigationController())
+        self.navigationRouter = navigationRouter ?? NavigationRouter(navigationController: ElementNavigationController())
     }
 }

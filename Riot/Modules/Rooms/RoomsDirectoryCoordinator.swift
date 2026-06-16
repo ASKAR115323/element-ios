@@ -39,7 +39,7 @@ final class RoomsDirectoryCoordinator: RoomsDirectoryCoordinatorType {
     // MARK: - Setup
     
     init(session: MXSession, dataSource: PublicRoomsDirectoryDataSource) {
-        self.navigationRouter = NavigationRouter(navigationController: RiotNavigationController())
+        self.navigationRouter = NavigationRouter(navigationController: ElementNavigationController())
         self.session = session
         self.dataSource = dataSource
     }    
@@ -86,7 +86,7 @@ extension RoomsDirectoryCoordinator: ShowDirectoryCoordinatorDelegate {
     }
     
     func showDirectoryCoordinatorWantsToShow(_ coordinator: ShowDirectoryCoordinatorType, viewController: UIViewController) {
-        toPresentable().present(RiotNavigationController(rootViewController: viewController), animated: true, completion: nil)
+        toPresentable().present(ElementNavigationController(rootViewController: viewController), animated: true, completion: nil)
     }
     
     func showDirectoryCoordinator(_ coordinator: ShowDirectoryCoordinatorType, didSelectRoomWithIdOrAlias roomIdOrAlias: String) {

@@ -45,7 +45,7 @@ final class RoomNotificationSettingsCoordinatorBridgePresenter: NSObject {
         let roomNotificationSettingsCoordinator = RoomNotificationSettingsCoordinator(room: room)
         roomNotificationSettingsCoordinator.delegate = self
         let presentable = roomNotificationSettingsCoordinator.toPresentable()
-        let navigationController = RiotNavigationController(rootViewController: presentable)
+        let navigationController = ElementNavigationController(rootViewController: presentable)
         navigationController.modalPresentationStyle = .formSheet
         presentable.presentationController?.delegate = self
         viewController.present(navigationController, animated: animated, completion: nil)

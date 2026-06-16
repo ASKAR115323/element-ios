@@ -7,7 +7,7 @@
 
 import XCTest
 
-@testable import RiotSwiftUI
+@testable import ElementSwiftUI
 
 class UserSessionDetailsViewModelTests: XCTestCase {
     private static var lastSeenDateFormatter: DateFormatter = {

@@ -81,7 +81,7 @@ class AllChatsCoordinator: NSObject, SplitViewMasterCoordinatorProtocol {
     init(parameters: AllChatsCoordinatorParameters) {
         self.parameters = parameters
         
-        let masterNavigationController = RiotNavigationController()
+        let masterNavigationController = ElementNavigationController()
         self.navigationRouter = NavigationRouter(navigationController: masterNavigationController)
         self.activityIndicatorPresenter = ActivityIndicatorPresenter()
         self.indicatorPresenter = UserIndicatorTypePresenter(presentingViewController: masterNavigationController)

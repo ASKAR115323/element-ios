@@ -38,7 +38,7 @@ class NotificationService: UNNotificationServiceExtension {
     
     private static var backgroundSyncService: MXBackgroundSyncService!
     private var showDecryptedContentInNotifications: Bool {
-        return RiotSettings.shared.showDecryptedContentInNotifications
+        return ElementSettings.shared.showDecryptedContentInNotifications
     }
     private lazy var configuration: Configurable = {
         return CommonConfiguration()
@@ -562,7 +562,7 @@ class NotificationService: UNNotificationServiceExtension {
                                 // call notifications should stand out from normal messages, so we don't stack them
                                 threadIdentifier = nil
                                 //  only send VoIP pushes if ringing is enabled for group calls
-                                if RiotSettings.shared.enableRingingForGroupCalls {
+                                if ElementSettings.shared.enableRingingForGroupCalls {
                                     self.sendVoipPush(forEvent: event)
                                 } else {
                                     additionalUserInfo = [Constants.userInfoKeyPresentNotificationOnForeground: true]

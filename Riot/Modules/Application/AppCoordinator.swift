@@ -138,7 +138,7 @@ final class AppCoordinator: NSObject, AppCoordinatorType {
     }
     
     private func setupTheme() {
-        ThemeService.shared().themeId = RiotSettings.shared.userInterfaceTheme
+        ThemeService.shared().themeId = ElementSettings.shared.userInterfaceTheme
 
         // Set theme id from current theme.identifier, themeId can be nil.
         if let themeId = ThemeIdentifier(rawValue: ThemeService.shared().theme.identifier) {

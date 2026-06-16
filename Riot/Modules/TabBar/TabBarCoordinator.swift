@@ -85,7 +85,7 @@ final class TabBarCoordinator: NSObject, SplitViewMasterCoordinatorProtocol {
     init(parameters: TabBarCoordinatorParameters) {
         self.parameters = parameters
         
-        let masterNavigationController = RiotNavigationController()
+        let masterNavigationController = ElementNavigationController()
         self.navigationRouter = NavigationRouter(navigationController: masterNavigationController)
         self.masterNavigationController = masterNavigationController
         self.activityIndicatorPresenter = ActivityIndicatorPresenter()
@@ -356,17 +356,17 @@ final class TabBarCoordinator: NSObject, SplitViewMasterCoordinatorProtocol {
         let homeViewController = self.createHomeViewController()
         viewControllers.append(homeViewController)
         
-        if RiotSettings.shared.homeScreenShowFavouritesTab {
+        if ElementSettings.shared.homeScreenShowFavouritesTab {
             let favouritesViewController = self.createFavouritesViewController()
             viewControllers.append(favouritesViewController)
         }
         
-        if RiotSettings.shared.homeScreenShowPeopleTab {
+        if ElementSettings.shared.homeScreenShowPeopleTab {
             let peopleViewController = self.createPeopleViewController()
             viewControllers.append(peopleViewController)
         }
         
-        if RiotSettings.shared.homeScreenShowRoomsTab {
+        if ElementSettings.shared.homeScreenShowRoomsTab {
             let roomsViewController = self.createRoomsViewController()
             viewControllers.append(roomsViewController)
         }
@@ -720,12 +720,12 @@ final class TabBarCoordinator: NSObject, SplitViewMasterCoordinatorProtocol {
     private var windowOverlay: WindowOverlayPresenter?
 
     func showCoachMessageIfNeeded(with session: MXSession) {
-        if !RiotSettings.shared.slideMenuRoomsCoachMessageHasBeenDisplayed {
+        if !ElementSettings.shared.slideMenuRoomsCoachMessageHasBeenDisplayed {
             let isAuthenticated = MXKAccountManager.shared().activeAccounts.first != nil || MXKAccountManager.shared().accounts.first?.isSoftLogout == false
 
         if isAuthenticated, let spaceService = session.spaceService, masterTabBarController.presentedViewController == nil, navigationRouter.modules.count == 1 {
                 if spaceService.isInitialised && !spaceService.rootSpaceSummaries.isEmpty {
-                    RiotSettings.shared.slideMenuRoomsCoachMessageHasBeenDisplayed = true
+                    ElementSettings.shared.slideMenuRoomsCoachMessageHasBeenDisplayed = true
                     windowOverlay = WindowOverlayPresenter()
                     let coachMarkView = CoachMarkView.instantiate(
                         text: VectorL10n.sideMenuCoachMessage,

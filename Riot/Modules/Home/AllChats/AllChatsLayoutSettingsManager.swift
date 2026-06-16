@@ -44,13 +44,13 @@ final class AllChatsLayoutSettingsManager: NSObject {
     
     var activeFilters: AllChatsLayoutFilterType {
         get {
-            guard let value = RiotSettings.defaults.object(forKey: Constants.activeFiltersKey) as? NSNumber else {
+            guard let value = ElementSettings.defaults.object(forKey: Constants.activeFiltersKey) as? NSNumber else {
                 return .all
             }
             return AllChatsLayoutFilterType(rawValue: value.uintValue)
         }
         set {
-            RiotSettings.defaults.set(newValue.rawValue, forKey: Constants.activeFiltersKey)
+            ElementSettings.defaults.set(newValue.rawValue, forKey: Constants.activeFiltersKey)
             
             track(activeFilters: newValue)
             
@@ -62,7 +62,7 @@ final class AllChatsLayoutSettingsManager: NSObject {
     
     var allChatLayoutSettings: AllChatsLayoutSettings {
         get {
-            guard let data = RiotSettings.defaults.data(forKey: Constants.settingsKey) else {
+            guard let data = ElementSettings.defaults.data(forKey: Constants.settingsKey) else {
                 return AllChatsLayoutSettings()
             }
             
@@ -88,7 +88,7 @@ final class AllChatsLayoutSettingsManager: NSObject {
                 return
             }
             
-            RiotSettings.defaults.set(data, forKey: Constants.settingsKey)
+            ElementSettings.defaults.set(data, forKey: Constants.settingsKey)
             
             DispatchQueue.main.async {
                 NotificationCenter.default.post(name: AllChatsLayoutSettingsManager.didUpdateSettings, object: self)

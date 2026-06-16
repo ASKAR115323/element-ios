@@ -74,7 +74,7 @@ class CommonConfiguration: NSObject, Configurable {
         sdkOptions.enableKeyBackupWhenStartingMXCrypto = false
 
         // Pass threading option to the SDK
-        sdkOptions.enableThreads = RiotSettings.shared.enableThreads
+        sdkOptions.enableThreads = ElementSettings.shared.enableThreads
         
         sdkOptions.clientPermalinkBaseUrl = BuildSettings.clientPermalinkBaseUrl
         
@@ -82,7 +82,7 @@ class CommonConfiguration: NSObject, Configurable {
         // Configure key provider delegate
         MXKeyProvider.sharedInstance().delegate = EncryptionKeyManager.shared
 
-        sdkOptions.enableNewClientInformationFeature = RiotSettings.shared.enableClientInformationFeature
+        sdkOptions.enableNewClientInformationFeature = ElementSettings.shared.enableClientInformationFeature
         
         sdkOptions.cryptoMigrationDelegate = self
     }
@@ -156,7 +156,7 @@ class CommonConfiguration: NSObject, Configurable {
         // Let's call invite be valid for 1 minute
         callManager.inviteLifetime = 60000
         
-        if RiotSettings.shared.allowStunServerFallback, let stunServerFallback = BuildSettings.stunServerFallbackUrlString {
+        if ElementSettings.shared.allowStunServerFallback, let stunServerFallback = BuildSettings.stunServerFallbackUrlString {
             callManager.fallbackSTUNServer = stunServerFallback
         }
     }    
@@ -165,10 +165,10 @@ class CommonConfiguration: NSObject, Configurable {
 extension CommonConfiguration: MXCryptoV2MigrationDelegate {
     var needsVerificationUpgrade: Bool {
         get {
-            RiotSettings.shared.showVerificationUpgradeAlert
+            ElementSettings.shared.showVerificationUpgradeAlert
         }
         set {
-            RiotSettings.shared.showVerificationUpgradeAlert = newValue
+            ElementSettings.shared.showVerificationUpgradeAlert = newValue
         }
     }
 }

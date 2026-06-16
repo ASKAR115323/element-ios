@@ -7,7 +7,7 @@
 
 import XCTest
 
-@testable import RiotSwiftUI
+@testable import ElementSwiftUI
 
 class OnboardingCelebrationViewModelTests: XCTestCase {
     // Nothing to test as there is no mutable state

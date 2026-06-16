@@ -7,7 +7,7 @@
 
 import XCTest
 
-@testable import RiotSwiftUI
+@testable import ElementSwiftUI
 
 class ChangePasswordViewModelTests: XCTestCase {
     @MainActor func testEmptyState() async {

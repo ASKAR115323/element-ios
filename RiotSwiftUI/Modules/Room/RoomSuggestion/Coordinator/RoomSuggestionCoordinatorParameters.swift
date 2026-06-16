@@ -18,6 +18,6 @@ struct RoomSuggestionCoordinatorParameters {
     init(room: MXRoom,
          navigationRouter: NavigationRouterType? = nil) {
         self.room = room
-        self.navigationRouter = navigationRouter ?? NavigationRouter(navigationController: RiotNavigationController())
+        self.navigationRouter = navigationRouter ?? NavigationRouter(navigationController: ElementNavigationController())
     }
 }

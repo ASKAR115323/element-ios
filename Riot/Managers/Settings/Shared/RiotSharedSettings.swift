@@ -15,10 +15,10 @@ import MatrixSDK
     case declined
 }
 
-/// Shared user settings across all Riot clients.
+/// Shared user settings across all Element clients.
 /// It implements https://github.com/vector-im/riot-meta/blob/master/spec/settings.md
 @objcMembers
-class RiotSharedSettings: NSObject {
+class ElementSharedSettings: NSObject {
 
     // MARK: - Constants
     private enum Settings {
@@ -49,7 +49,7 @@ class RiotSharedSettings: NSObject {
         return getIntegrationProvisioning()?.enabled ?? true
     }
 
-    func getIntegrationProvisioning() -> RiotSettingIntegrationProvisioning? {
+    func getIntegrationProvisioning() -> ElementSettingIntegrationProvisioning? {
         guard let integrationProvisioningDict = getAccountData(forEventType: Settings.integrationProvisioning) else {
             return nil
         }
@@ -65,7 +65,7 @@ class RiotSharedSettings: NSObject {
 
         // Update only the "widgets" field in the account data
         var integrationProvisioningDict = getAccountData(forEventType: Settings.integrationProvisioning) ?? [:]
-        integrationProvisioningDict[RiotSettingIntegrationProvisioning.CodingKeys.enabled.rawValue] = enabled
+        integrationProvisioningDict[ElementSettingIntegrationProvisioning.CodingKeys.enabled.rawValue] = enabled
 
         return session.setAccountData(integrationProvisioningDict, forType: Settings.integrationProvisioning, success: success, failure: failure)
     }
@@ -84,7 +84,7 @@ class RiotSharedSettings: NSObject {
         }
     }
 
-    func getAllowedWidgets() -> RiotSettingAllowedWidgets? {
+    func getAllowedWidgets() -> ElementSettingAllowedWidgets? {
         guard let allowedWidgetsDict = getAccountData(forEventType: Settings.allowedWidgets) else {
             return nil
         }
@@ -116,7 +116,7 @@ class RiotSharedSettings: NSObject {
 
         // Update only the "widgets" field in the account data
         var allowedWidgetsDict = getAccountData(forEventType: Settings.allowedWidgets) ?? [:]
-        allowedWidgetsDict[RiotSettingAllowedWidgets.CodingKeys.widgets.rawValue] = widgets
+        allowedWidgetsDict[ElementSettingAllowedWidgets.CodingKeys.widgets.rawValue] = widgets
 
         return session.setAccountData(allowedWidgetsDict, forType: Settings.allowedWidgets, success: success, failure: failure)
     }
@@ -184,7 +184,7 @@ class RiotSharedSettings: NSObject {
 
         // Update only the "native_widgets" field in the account data
         var allowedWidgetsDict = getAccountData(forEventType: Settings.allowedWidgets) ?? [:]
-        allowedWidgetsDict[RiotSettingAllowedWidgets.CodingKeys.nativeWidgets.rawValue] = nativeWidgets
+        allowedWidgetsDict[ElementSettingAllowedWidgets.CodingKeys.nativeWidgets.rawValue] = nativeWidgets
 
         return session.setAccountData(allowedWidgetsDict, forType: Settings.allowedWidgets, success: success, failure: failure)
     }

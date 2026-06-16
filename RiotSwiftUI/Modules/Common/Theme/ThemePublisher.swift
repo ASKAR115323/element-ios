@@ -10,7 +10,7 @@ import Foundation
 
 /// Provides the theme and theme updates to SwiftUI.
 ///
-/// Replaces the old ThemeObserver. Riot app can push updates to this class
+/// Replaces the old ThemeObserver. Element app can push updates to this class
 /// removing the dependency of this class on the `ThemeService`.
 class ThemePublisher: ObservableObject {
     private static var _shared: ThemePublisher?

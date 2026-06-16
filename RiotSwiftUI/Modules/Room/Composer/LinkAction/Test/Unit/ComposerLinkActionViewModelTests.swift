@@ -5,7 +5,7 @@
 // Please see LICENSE files in the repository root for full details.
 //
 
-@testable import RiotSwiftUI
+@testable import ElementSwiftUI
 import WysiwygComposer
 import XCTest
 

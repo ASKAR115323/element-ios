@@ -7,13 +7,13 @@
 
 import Combine
 
-extension RiotSettings: UserSessionSettingsProtocol {
+extension ElementSettings: UserSessionSettingsProtocol {
     var showIPAddressesInSessionsManagerPublisher: AnyPublisher<Bool, Never> {
         NotificationCenter.default
             .publisher(for: .userDefaultValueUpdated)
             .compactMap { $0.object as? String }
-            .filter { $0 == RiotSettings.UserDefaultsKeys.showIPAddressesInSessionsManager }
-            .map { _ in RiotSettings.shared.showIPAddressesInSessionsManager }
+            .filter { $0 == ElementSettings.UserDefaultsKeys.showIPAddressesInSessionsManager }
+            .map { _ in ElementSettings.shared.showIPAddressesInSessionsManager }
             .eraseToAnyPublisher()
     }
 }

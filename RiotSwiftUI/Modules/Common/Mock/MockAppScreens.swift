@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// The static list of mocked screens in RiotSwiftUI
+/// The static list of mocked screens in ElementSwiftUI
 enum MockAppScreens {
     static let appScreens: [MockScreenState.Type] = [
         MockUserSessionNameScreenState.self,

@@ -171,7 +171,7 @@ final class LocationSharingCoordinator: Coordinator, Presentable {
     }
     
     private func showLabFlagPromotionIfNeeded(completion: @escaping ((Bool) -> Void)) {
-        guard RiotSettings.shared.enableLiveLocationSharing == false else {
+        guard ElementSettings.shared.enableLiveLocationSharing == false else {
             // Live location sharing lab flag is already enabled, do not present lab flag promotion screen
             completion(true)
             return

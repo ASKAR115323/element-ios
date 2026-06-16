@@ -64,7 +64,7 @@ final class ChangePasswordCoordinatorBridgePresenter: NSObject {
             self.delegate?.changePasswordCoordinatorBridgePresenterDidComplete(self)
         }
         let presentable = changePasswordCoordinator.toPresentable()
-        let navController = RiotNavigationController(rootViewController: presentable.toPresentable())
+        let navController = ElementNavigationController(rootViewController: presentable.toPresentable())
         navController.navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
                                                                                  target: self,
                                                                                  action: #selector(cancelTapped))

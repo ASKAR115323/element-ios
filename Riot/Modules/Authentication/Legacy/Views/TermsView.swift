@@ -19,7 +19,7 @@ final class TermsView: UIView, NibOwnerLoadable, UITableViewDelegate, UITableVie
 
 
     /// NavigationVC to display a policy content
-    private var navigationController: RiotNavigationController?
+    private var navigationController: ElementNavigationController?
 
     /// The list of policies to be accepted by the end user
     private var policies: [MXLoginPolicyData] = []
@@ -179,7 +179,7 @@ final class TermsView: UIView, NibOwnerLoadable, UITableViewDelegate, UITableVie
         let leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "back_icon"), style: .plain, target: self, action: #selector(didTapCancelOnPolicyScreen))
         webViewViewController.navigationItem.leftBarButtonItem = leftBarButtonItem
 
-        navigationController = RiotNavigationController()
+        navigationController = ElementNavigationController()
         delegate?.authInputsView?(nil, present: navigationController, animated: false)
         navigationController?.pushViewController(webViewViewController, animated: false)
     }

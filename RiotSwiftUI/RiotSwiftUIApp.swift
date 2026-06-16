@@ -7,9 +7,9 @@
 import SwiftUI
 
 @main
-/// RiotSwiftUI screens rendered for UI Tests.
-struct RiotSwiftUIApp: App {
-    @UIApplicationDelegateAdaptor private var delegate: RiotSwiftUIAppDelegate
+/// ElementSwiftUI screens rendered for UI Tests.
+struct ElementSwiftUIApp: App {
+    @UIApplicationDelegateAdaptor private var delegate: ElementSwiftUIAppDelegate
     
     init() {
         UILog.configure(logger: PrintLogger.self)
@@ -29,7 +29,7 @@ struct RiotSwiftUIApp: App {
     }
 }
 
-class RiotSwiftUIAppDelegate: NSObject, UIApplicationDelegate {
+class ElementSwiftUIAppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         if ProcessInfo.processInfo.environment["IS_RUNNING_UI_TESTS"] == "1" {
             UIView.setAnimationsEnabled(false)

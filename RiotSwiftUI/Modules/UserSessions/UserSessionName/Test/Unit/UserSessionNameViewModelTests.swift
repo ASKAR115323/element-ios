@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import RiotSwiftUI
+@testable import ElementSwiftUI
 
 class UserSessionNameViewModelTests: XCTestCase {
     var viewModel: UserSessionNameViewModelProtocol!

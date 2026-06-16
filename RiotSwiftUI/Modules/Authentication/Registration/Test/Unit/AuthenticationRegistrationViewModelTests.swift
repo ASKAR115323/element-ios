@@ -8,7 +8,7 @@
 import Combine
 import XCTest
 
-@testable import RiotSwiftUI
+@testable import ElementSwiftUI
 
 @MainActor class AuthenticationRegistrationViewModelTests: XCTestCase {
     let defaultHomeserver = AuthenticationHomeserverViewData.mockMatrixDotOrg

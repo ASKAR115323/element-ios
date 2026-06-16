@@ -7,7 +7,7 @@
 
 import XCTest
 
-@testable import RiotSwiftUI
+@testable import ElementSwiftUI
 
 class LiveLocationLabPromotionViewModelTests: XCTestCase {
     // Nothing to test as there is no mutable state

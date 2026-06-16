@@ -14,7 +14,7 @@ final public class OnBoardingManager: NSObject {
     
     private enum Constants {
         static let riotBotMatrixId = "@riot-bot:matrix.org"
-        static let createRiotBotDMRequestMaxNumberOfTries: UInt = UInt.max
+        static let createElementBotDMRequestMaxNumberOfTries: UInt = UInt.max
     }
     
     // MARK: - Properties
@@ -31,7 +31,7 @@ final public class OnBoardingManager: NSObject {
     
     // MARK: - Public
     
-    @objc public func createRiotBotDirectMessageIfNeeded(success: (() -> Void)?, failure: ((Error) -> Void)?) {
+    @objc public func createElementBotDirectMessageIfNeeded(success: (() -> Void)?, failure: ((Error) -> Void)?) {
         
         // Check user has joined no rooms so is a new comer
         guard self.isUserJoinedARoom() == false else {
@@ -40,13 +40,13 @@ final public class OnBoardingManager: NSObject {
             return
         }
 
-        // Check first that the user homeserver is federated with the  Riot-bot homeserver
+        // Check first that the user homeserver is federated with the  Element-bot homeserver
         self.session.matrixRestClient.avatarUrl(forUser: Constants.riotBotMatrixId) { (response) in
 
             switch response {
             case .success:
 
-                // Create DM room with Riot-bot
+                // Create DM room with Element-bot
                 let roomCreationParameters = MXRoomCreationParameters(forDirectRoomWithUser: Constants.riotBotMatrixId)
                 let httpOperation = self.session.createRoom(parameters: roomCreationParameters) { (response) in
 
@@ -60,7 +60,7 @@ final public class OnBoardingManager: NSObject {
                 }
 
                 // Make multipe tries, until we get a response
-                httpOperation.maxNumberOfTries = Constants.createRiotBotDMRequestMaxNumberOfTries
+                httpOperation.maxNumberOfTries = Constants.createElementBotDMRequestMaxNumberOfTries
 
             case .failure(let error):
                 MXLog.debug("[OnBoardingManager] riot-bot is unknown or the user hs is non federated. Do not try to create a room with riot-bot")

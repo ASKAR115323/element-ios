@@ -40,7 +40,7 @@ class SpaceMenuViewModel: SpaceMenuViewModelType {
             self.menuItems = spaceMenuItems
         } else {
             self.menuItems = [
-                SpaceMenuListItemViewData(action: .showAllRoomsInHomeSpace, style: .toggle, title: VectorL10n.spaceHomeShowAllRooms, icon: nil, value: RiotSettings.shared.showAllRoomsInHomeSpace)
+                SpaceMenuListItemViewData(action: .showAllRoomsInHomeSpace, style: .toggle, title: VectorL10n.spaceHomeShowAllRooms, icon: nil, value: ElementSettings.shared.showAllRoomsInHomeSpace)
             ]
         }
     }
@@ -65,8 +65,8 @@ class SpaceMenuViewModel: SpaceMenuViewModelType {
     private func processAction(with action: SpaceMenuListItemAction, at indexPath: IndexPath) {
         switch action {
         case .showAllRoomsInHomeSpace:
-            RiotSettings.shared.showAllRoomsInHomeSpace.toggle()
-            self.menuItems[indexPath.row].value = RiotSettings.shared.showAllRoomsInHomeSpace
+            ElementSettings.shared.showAllRoomsInHomeSpace.toggle()
+            self.menuItems[indexPath.row].value = ElementSettings.shared.showAllRoomsInHomeSpace
             self.viewDelegate?.spaceMenuViewModel(self, didUpdateViewState: .deselect)
         case .leaveSpace:
             self.leaveSpace()

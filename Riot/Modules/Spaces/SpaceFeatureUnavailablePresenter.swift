@@ -26,7 +26,7 @@ final class SpaceFeatureUnavailablePresenter: NSObject {
         
         let spaceFeatureUnavailableVC = SpaceFeatureUnaivableViewController.instantiate()
         
-        let navigationVC = RiotNavigationController(rootViewController: spaceFeatureUnavailableVC)
+        let navigationVC = ElementNavigationController(rootViewController: spaceFeatureUnavailableVC)
         
         spaceFeatureUnavailableVC.navigationItem.rightBarButtonItem = MXKBarButtonItem(title: VectorL10n.ok, style: .plain, action: { [weak navigationVC] in
             navigationVC?.dismiss(animated: true)

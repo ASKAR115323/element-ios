@@ -9,7 +9,7 @@ import Combine
 import CoreLocation
 import XCTest
 
-@testable import RiotSwiftUI
+@testable import ElementSwiftUI
 
 class LiveLocationSharingViewerViewModelTests: XCTestCase {
     var service: MockLiveLocationSharingViewerService!

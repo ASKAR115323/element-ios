@@ -7,7 +7,7 @@ Please see LICENSE in the repository root for full details.
 
 import Foundation
 
-/// Riot Standard Room Member Power Level
+/// Element Standard Room Member Power Level
 @objc
 public enum RoomPowerLevel: Int {
     case owner = 150

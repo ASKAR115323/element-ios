@@ -36,7 +36,7 @@ class NavigationRouterStore: NavigationRouterStoreProtocol {
             return existingNavigationRouter
         }
         
-        let navigationRouter = NavigationRouter(navigationController: RiotNavigationController())
+        let navigationRouter = NavigationRouter(navigationController: ElementNavigationController())
         return navigationRouter
     }
     

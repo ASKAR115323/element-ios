@@ -31,7 +31,7 @@ struct AnalyticsPromptViewState: BindableState {
 }
 
 /// A collection of strings for the UI that need to be created in
-/// the coordinator or mocked in the RiotSwiftUI target.
+/// the coordinator or mocked in the ElementSwiftUI target.
 protocol AnalyticsPromptStringsProtocol {
     var point1: NSAttributedString { get }
     var point2: NSAttributedString { get }
@@ -107,7 +107,7 @@ extension AnalyticsPromptType: Identifiable {
     }
 }
 
-// For the RiotSwiftUI target presentation.
+// For the ElementSwiftUI target presentation.
 extension AnalyticsPromptType: CustomStringConvertible {
     var description: String { id }
 }

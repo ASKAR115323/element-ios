@@ -13,7 +13,7 @@ extension String {
         static let RTLOverrideChar: String = "\u{202E}"
     }
     
-    /// Calculates a numeric hash same as Riot Web
+    /// Calculates a numeric hash same as Element Web
     /// See original function here https://github.com/matrix-org/matrix-react-sdk/blob/321dd49db4fbe360fc2ff109ac117305c955b061/src/utils/FormattingUtils.js#L47
     var vc_hashCode: Int32 {
         var hash: Int32 = 0

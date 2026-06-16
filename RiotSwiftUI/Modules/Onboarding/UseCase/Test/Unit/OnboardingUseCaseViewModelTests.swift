@@ -7,7 +7,7 @@
 
 import XCTest
 
-@testable import RiotSwiftUI
+@testable import ElementSwiftUI
 
 class OnboardingUseCaseViewModelTests: XCTestCase {
     // The view model has nothing to test.

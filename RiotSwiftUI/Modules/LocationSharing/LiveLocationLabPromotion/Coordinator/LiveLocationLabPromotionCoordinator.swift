@@ -43,7 +43,7 @@ final class LiveLocationLabPromotionCoordinator: NSObject, Coordinator, Presenta
         liveLocationLabPromotionViewModel.completion = { [weak self] enableLiveLocation in
             guard let self = self else { return }
 
-            RiotSettings.shared.enableLiveLocationSharing = enableLiveLocation
+            ElementSettings.shared.enableLiveLocationSharing = enableLiveLocation
 
             self.completion?(enableLiveLocation)
         }
@@ -60,6 +60,6 @@ final class LiveLocationLabPromotionCoordinator: NSObject, Coordinator, Presenta
 
 extension LiveLocationLabPromotionCoordinator: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-        completion?(RiotSettings.shared.enableLiveLocationSharing)
+        completion?(ElementSettings.shared.enableLiveLocationSharing)
     }
 }

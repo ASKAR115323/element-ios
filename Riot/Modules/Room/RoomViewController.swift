@@ -165,7 +165,7 @@ extension RoomViewController {
     }
 
     @objc func togglePlainTextMode() {
-        RiotSettings.shared.enableWysiwygTextFormatting.toggle()
+        ElementSettings.shared.enableWysiwygTextFormatting.toggle()
         wysiwygInputToolbar?.textFormattingEnabled.toggle()
     }
     

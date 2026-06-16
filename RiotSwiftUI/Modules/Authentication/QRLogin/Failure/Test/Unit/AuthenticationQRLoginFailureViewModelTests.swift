@@ -7,7 +7,7 @@
 
 import XCTest
 
-@testable import RiotSwiftUI
+@testable import ElementSwiftUI
 
 class AuthenticationQRLoginFailureViewModelTests: XCTestCase {
     var viewModel: AuthenticationQRLoginFailureViewModelProtocol!

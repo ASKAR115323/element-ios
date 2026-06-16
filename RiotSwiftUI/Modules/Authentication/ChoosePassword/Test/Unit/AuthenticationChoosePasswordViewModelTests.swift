@@ -7,7 +7,7 @@
 
 import XCTest
 
-@testable import RiotSwiftUI
+@testable import ElementSwiftUI
 
 class AuthenticationChoosePasswordViewModelTests: XCTestCase {
     @MainActor func testInitialState() async {

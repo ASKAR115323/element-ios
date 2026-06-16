@@ -26,12 +26,12 @@ class UserSessionProperties: NSObject {
     /// The underlying dictionary for this userId from user defaults.
     private var dictionary: [String: Any] {
         get {
-            RiotSettings.shared.userSessionProperties[userId] ?? [:]
+            ElementSettings.shared.userSessionProperties[userId] ?? [:]
         }
         set {
-            var sharedProperties = RiotSettings.shared.userSessionProperties
+            var sharedProperties = ElementSettings.shared.userSessionProperties
             sharedProperties[userId] = newValue
-            RiotSettings.shared.userSessionProperties = sharedProperties
+            ElementSettings.shared.userSessionProperties = sharedProperties
         }
     }
     
@@ -90,8 +90,8 @@ class UserSessionProperties: NSObject {
     func delete() {
         dictionary = [:]
         
-        var sharedProperties = RiotSettings.shared.userSessionProperties
+        var sharedProperties = ElementSettings.shared.userSessionProperties
         sharedProperties[userId] = nil
-        RiotSettings.shared.userSessionProperties = sharedProperties
+        ElementSettings.shared.userSessionProperties = sharedProperties
     }
 }

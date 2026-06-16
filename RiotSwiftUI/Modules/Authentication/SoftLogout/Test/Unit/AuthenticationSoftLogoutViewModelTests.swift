@@ -7,7 +7,7 @@
 
 import XCTest
 
-@testable import RiotSwiftUI
+@testable import ElementSwiftUI
 
 class AuthenticationSoftLogoutViewModelTests: XCTestCase {
     @MainActor func testInitialStateForMatrixOrg() async {

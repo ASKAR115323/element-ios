@@ -32,7 +32,7 @@ class SpaceCreationEmailInvitesService: SpaceCreationEmailInvitesServiceProtocol
 
     func prepareIdentityService(prepared: ((String?, String?) -> Void)?, failure: ((Error?) -> Void)?) {
         isLoadingSubject.send(true)
-        session.prepareIdentityServiceForTerms(withDefault: RiotSettings.shared.identityServerUrlString) { [weak self] _, baseURL, accessToken in
+        session.prepareIdentityServiceForTerms(withDefault: ElementSettings.shared.identityServerUrlString) { [weak self] _, baseURL, accessToken in
             self?.isLoadingSubject.send(false)
             prepared?(baseURL, accessToken)
         } failure: { [weak self] error in

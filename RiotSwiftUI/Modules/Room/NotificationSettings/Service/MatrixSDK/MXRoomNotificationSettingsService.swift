@@ -121,7 +121,7 @@ final class MXRoomNotificationSettingsService: RoomNotificationSettingsServiceTy
         }
         
         guard notificationCenterDidUpdateObserver == nil else {
-            MXLog.debug("[MXRoom+Riot] Request in progress: ignore push rule update")
+            MXLog.debug("[MXRoom+Element] Request in progress: ignore push rule update")
             completion()
             return
         }

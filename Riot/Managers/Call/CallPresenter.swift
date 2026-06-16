@@ -304,7 +304,7 @@ class CallPresenter: NSObject {
                 JMCallKitProxy.reportOutgoingCall(with: newUUID, connectedAt: nil)
             } else {
                 //  incoming call
-                guard RiotSettings.shared.enableRingingForGroupCalls else {
+                guard ElementSettings.shared.enableRingingForGroupCalls else {
                     //  do not ring for Jitsi calls
                     return
                 }

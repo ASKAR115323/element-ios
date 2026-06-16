@@ -21,7 +21,7 @@ import AnalyticsEvents
     
     // MARK: - Properties
     
-    /// The singleton instance to be used within the Riot target.
+    /// The singleton instance to be used within the Element target.
     static let shared = Analytics()
     
     /// The analytics client to send events with.
@@ -41,12 +41,12 @@ import AnalyticsEvents
     /// Whether to show the user the analytics opt in prompt.
     var shouldShowAnalyticsPrompt: Bool {
         // Only show the prompt once, and when analytics are enabled in BuildSettings.
-        !RiotSettings.shared.hasSeenAnalyticsPrompt && BuildSettings.analyticsConfiguration.isEnabled
+        !ElementSettings.shared.hasSeenAnalyticsPrompt && BuildSettings.analyticsConfiguration.isEnabled
     }
     
     /// Indicates whether the user previously accepted Matomo analytics and should be shown the upgrade prompt.
     var promptShouldDisplayUpgradeMessage: Bool {
-        RiotSettings.shared.hasAcceptedMatomoAnalytics
+        ElementSettings.shared.hasAcceptedMatomoAnalytics
     }
     
     /// Used to defined the trigger of the next potential `JoinedRoom` event
@@ -80,7 +80,7 @@ import AnalyticsEvents
     /// - Parameter session: An optional session to use to when reading/generating the analytics ID.
     ///  The session will be ignored if not running.
     func optIn(with session: MXSession?) {
-        RiotSettings.shared.enableAnalytics = true
+        ElementSettings.shared.enableAnalytics = true
         startIfEnabled()
         
         guard let session = session else { return }
@@ -92,7 +92,7 @@ import AnalyticsEvents
     
     /// Stops analytics tracking and calls `reset` to clear any IDs and event queues.
     func optOut() {
-        RiotSettings.shared.enableAnalytics = false
+        ElementSettings.shared.enableAnalytics = false
         
         // The order is important here. PostHog ignores the reset if stopped.
         reset()
@@ -104,7 +104,7 @@ import AnalyticsEvents
     
     /// Starts the analytics client if the user has opted in, otherwise does nothing.
     func startIfEnabled() {
-        guard RiotSettings.shared.enableAnalytics, !isRunning else { return }
+        guard ElementSettings.shared.enableAnalytics, !isRunning else { return }
         
         client.start()
         monitoringClient.start()
@@ -129,8 +129,8 @@ import AnalyticsEvents
     /// - Parameter session: The session to read analytics settings from.
     func useAnalyticsSettings(from session: MXSession) {
         guard
-            RiotSettings.shared.enableAnalytics,
-            !RiotSettings.shared.isIdentifiedForAnalytics
+            ElementSettings.shared.enableAnalytics,
+            !ElementSettings.shared.isIdentifiedForAnalytics
         else { return }
         
         let service = AnalyticsService(session: session)
@@ -165,7 +165,7 @@ import AnalyticsEvents
         client.reset()
         monitoringClient.reset()
         MXLog.debug("[Analytics] Reset.")
-        RiotSettings.shared.isIdentifiedForAnalytics = false
+        ElementSettings.shared.isIdentifiedForAnalytics = false
         
         // Stop collecting crash logs
         MXLogger.logCrashes(false)
@@ -190,7 +190,7 @@ import AnalyticsEvents
         
         client.identify(id: id)
         MXLog.debug("[Analytics] Identified.")
-        RiotSettings.shared.isIdentifiedForAnalytics = true
+        ElementSettings.shared.isIdentifiedForAnalytics = true
     }
     
     /// Capture an event in the `client`.

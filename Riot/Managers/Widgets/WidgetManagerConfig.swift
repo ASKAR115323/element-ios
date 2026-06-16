@@ -34,7 +34,7 @@ class WidgetManagerConfig: NSObject, NSCoding {
         // path from the base URL before passing it to the js-sdk
 
         // We continue to use the full URL for the calls done by
-        // Riot-iOS, but the standard terms API called
+        // Element-iOS, but the standard terms API called
         // by the matrix-ios-sdk lives on the standard _matrix path. This means we
         // don't support running IMs on a non-root path, but it's the only
         // realistic way of transitioning to _matrix paths since configs in

@@ -831,7 +831,7 @@ extension AllChatsViewController: SplitViewMasterViewControllerProtocol {
     /// - Parameters:
     ///   - session: the matrix session.
     func presentVerifyCurrentSessionAlertIfNeeded(with session: MXSession) {
-        guard !RiotSettings.shared.hideVerifyThisSessionAlert,
+        guard !ElementSettings.shared.hideVerifyThisSessionAlert,
               !isOnboardingInProgress,
               presentedViewController == nil,
               viewIfLoaded?.window != nil else {
@@ -1020,7 +1020,7 @@ extension AllChatsViewController: SplitViewMasterViewControllerProtocol {
         alert.addAction(UIAlertAction(title: VectorL10n.doNotAskAgain,
                                       style: .destructive,
                                       handler: { action in
-            RiotSettings.shared.hideVerifyThisSessionAlert = true
+            ElementSettings.shared.hideVerifyThisSessionAlert = true
         }))
         
         self.present(alert, animated: true)
@@ -1059,7 +1059,7 @@ extension AllChatsViewController: SplitViewMasterViewControllerProtocol {
         
         settingsViewController.loadViewIfNeeded()
         AppDelegate.theDelegate().restoreInitialDisplay {
-            if RiotSettings.shared.enableNewSessionManager {
+            if ElementSettings.shared.enableNewSessionManager {
                 self.navigationController?.viewControllers = [self, settingsViewController]
                 settingsViewController.showUserSessionsFlow()
             } else {
@@ -1087,7 +1087,7 @@ extension AllChatsViewController: SplitViewMasterViewControllerProtocol {
     }
 
     private func resetReviewSessionsFlags() {
-        RiotSettings.shared.hideVerifyThisSessionAlert = false
+        ElementSettings.shared.hideVerifyThisSessionAlert = false
     }
     
     private func presentOnboardingFlow() {

@@ -47,7 +47,7 @@ class VersionCheckCoordinator: Coordinator, VersionCheckBannerViewDelegate, Vers
             return
         }
         
-        let versionCheckNextDisplayDateTimeInterval = RiotSettings.shared.versionCheckNextDisplayDateTimeInterval
+        let versionCheckNextDisplayDateTimeInterval = ElementSettings.shared.versionCheckNextDisplayDateTimeInterval
         if versionCheckNextDisplayDateTimeInterval > 0 {
             let nextDisplayDate = Date(timeIntervalSince1970: versionCheckNextDisplayDateTimeInterval)
             if nextDisplayDate > Date() {
@@ -121,7 +121,7 @@ class VersionCheckCoordinator: Coordinator, VersionCheckBannerViewDelegate, Vers
         bannerPresenter.dismissBannerView(animated: true)
         
         let nextDisplayDate = Calendar.current.date(byAdding: .month, value: 1, to: Date())
-        RiotSettings.shared.versionCheckNextDisplayDateTimeInterval = nextDisplayDate?.timeIntervalSince1970 ?? 0.0
+        ElementSettings.shared.versionCheckNextDisplayDateTimeInterval = nextDisplayDate?.timeIntervalSince1970 ?? 0.0
     }
     
     @objc private func updateTheme() {

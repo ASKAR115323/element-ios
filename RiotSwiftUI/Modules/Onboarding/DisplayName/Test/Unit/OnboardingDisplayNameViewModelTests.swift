@@ -8,7 +8,7 @@
 import Combine
 import XCTest
 
-@testable import RiotSwiftUI
+@testable import ElementSwiftUI
 
 class OnboardingDisplayNameViewModelTests: XCTestCase {
     var viewModel: OnboardingDisplayNameViewModel!

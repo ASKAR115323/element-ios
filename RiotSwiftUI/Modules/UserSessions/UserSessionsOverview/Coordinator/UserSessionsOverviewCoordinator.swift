@@ -32,7 +32,7 @@ final class UserSessionsOverviewCoordinator: Coordinator, Presentable {
         
         let shouldShowDeviceLogout = !parameters.session.hasOAuth2APIEnabled
         viewModel = UserSessionsOverviewViewModel(userSessionsOverviewService: parameters.service,
-                                                  settingsService: RiotSettings.shared,
+                                                  settingsService: ElementSettings.shared,
                                                   showDeviceLogout: shouldShowDeviceLogout)
         
         hostingViewController = VectorHostingController(rootView: UserSessionsOverview(viewModel: viewModel.context))

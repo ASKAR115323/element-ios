@@ -27,7 +27,7 @@ struct SpaceMembersCoordinatorParameters {
     init(userSessionsService: UserSessionsService,
          session: MXSession,
          spaceId: String,
-         navigationRouter: NavigationRouterType = NavigationRouter(navigationController: RiotNavigationController())) {
+         navigationRouter: NavigationRouterType = NavigationRouter(navigationController: ElementNavigationController())) {
         self.userSessionsService = userSessionsService
         self.session = session
         self.spaceId = spaceId

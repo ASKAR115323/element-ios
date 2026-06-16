@@ -25,7 +25,7 @@ class RoomInviteViewController: ContactsTableViewController {
     
     private func setupShareInviteLinkHeader() {
         guard roomAlias != nil,
-              RiotSettings.shared.allowInviteExernalUsers,
+              ElementSettings.shared.allowInviteExernalUsers,
               joinRule != .invite,
               joinRule != .restricted else {
             contactsTableView.tableHeaderView = nil

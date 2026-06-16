@@ -49,7 +49,7 @@ final class ExploreRoomCoordinator: NSObject, ExploreRoomCoordinatorType {
     // MARK: - Setup
     
     init(session: MXSession, spaceId: String,
-         navigationRouter: NavigationRouterType = NavigationRouter(navigationController: RiotNavigationController())) {
+         navigationRouter: NavigationRouterType = NavigationRouter(navigationController: ElementNavigationController())) {
         self.navigationRouter = navigationRouter
         self.session = session
         self.spaceId = spaceId

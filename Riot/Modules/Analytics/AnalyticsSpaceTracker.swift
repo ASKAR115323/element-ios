@@ -28,11 +28,11 @@ class AnalyticsSpaceTracker {
     private func trackSpaceNumber(with spaceService: MXSpaceService) {
         let spaceNumber = spaceService.spaceSummaries.filter { $0.membership == .join }.count
         
-        guard RiotSettings.shared.lastNumberOfTrackedSpaces != spaceNumber else {
+        guard ElementSettings.shared.lastNumberOfTrackedSpaces != spaceNumber else {
             return
         }
         
         Analytics.shared.updateUserProperties(numSpaces: spaceNumber)
-        RiotSettings.shared.lastNumberOfTrackedSpaces = spaceNumber
+        ElementSettings.shared.lastNumberOfTrackedSpaces = spaceNumber
     }
 }

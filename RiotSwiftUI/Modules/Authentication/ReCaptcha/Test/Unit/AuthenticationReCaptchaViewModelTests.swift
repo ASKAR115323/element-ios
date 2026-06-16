@@ -7,7 +7,7 @@
 
 import XCTest
 
-@testable import RiotSwiftUI
+@testable import ElementSwiftUI
 
 class AuthenticationReCaptchaViewModelTests: XCTestCase {
     // Nothing to test as the view model has no mutable state.

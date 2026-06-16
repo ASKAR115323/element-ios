@@ -59,7 +59,7 @@ final class TemplateScreenViewModel: TemplateScreenViewModelProtocol {
 
         viewState = .loading
 
-        // Check first that the user homeserver is federated with the  Riot-bot homeserver
+        // Check first that the user homeserver is federated with the  Element-bot homeserver
         self.currentOperation = self.session.matrixRestClient.displayName(forUser: self.session.myUser.userId) { [weak self]  (response) in
 
             guard let self = self else {

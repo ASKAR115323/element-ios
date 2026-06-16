@@ -44,6 +44,6 @@ struct ThreadsCoordinatorParameters {
         self.roomId = roomId
         self.threadId = threadId
         self.userIndicatorPresenter = userIndicatorPresenter
-        self.navigationRouter = navigationRouter ?? NavigationRouter(navigationController: RiotNavigationController())
+        self.navigationRouter = navigationRouter ?? NavigationRouter(navigationController: ElementNavigationController())
     }
 }

@@ -603,7 +603,7 @@ final class AuthenticationCoordinator: NSObject, AuthenticationCoordinatorProtoc
             return
         }
         fallbackVC.delegate = self
-        let navController = RiotNavigationController(rootViewController: fallbackVC)
+        let navController = ElementNavigationController(rootViewController: fallbackVC)
         navController.navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
                                                                                  target: self,
                                                                                  action: #selector(dismissFallback))
@@ -614,7 +614,7 @@ final class AuthenticationCoordinator: NSObject, AuthenticationCoordinatorProtoc
     private func dismissFallback() {
         MXLog.debug("[AuthenticationCoorrdinator] dismissFallback")
 
-        guard let fallbackNavigationVC = navigationRouter.toPresentable().presentedViewController as? RiotNavigationController else {
+        guard let fallbackNavigationVC = navigationRouter.toPresentable().presentedViewController as? ElementNavigationController else {
             return
         }
         fallbackNavigationVC.dismiss(animated: true)

@@ -205,7 +205,7 @@ final class RoomInfoListViewController: UIViewController {
         if BuildSettings.showNotificationsV2 {
             rows.append(roomNotifications)
         }
-        if RiotSettings.shared.roomInfoScreenShowIntegrations {
+        if ElementSettings.shared.roomInfoScreenShowIntegrations {
             rows.append(rowIntegrations)
         }
         rows.append(rowMembers)

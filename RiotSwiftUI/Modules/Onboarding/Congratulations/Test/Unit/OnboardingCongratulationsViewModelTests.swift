@@ -7,7 +7,7 @@
 
 import XCTest
 
-@testable import RiotSwiftUI
+@testable import ElementSwiftUI
 
 class OnboardingCongratulationsViewModelTests: XCTestCase {
     // The view modal has minimal set up and no mutation so nothing to test.

@@ -84,8 +84,8 @@ enum UserAgentParser {
                          clientVersion: clientVersion)
     }
 
-    // Legacy:  Riot/1.8.21 (iPhone; iOS 15.2; Scale/3.00)
-    // New:     Riot/1.8.21 (iPhone X; iOS 15.2; Scale/3.00)
+    // Legacy:  Element/1.8.21 (iPhone; iOS 15.2; Scale/3.00)
+    // New:     Element/1.8.21 (iPhone X; iOS 15.2; Scale/3.00)
     private static func parseIOS(_ userAgent: String) -> UserAgent {
         var deviceModel: String?
         var deviceOS: String?

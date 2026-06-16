@@ -18,7 +18,7 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 #include "Common.xcconfig"
-#include "Pods/Target Support Files/Pods-RiotPods-Riot/Pods-RiotPods-Riot.release.xcconfig"
+#include "Pods/Target Support Files/Pods-ElementPods-Element/Pods-ElementPods-Element.release.xcconfig"
 
 PROVISIONING_PROFILE = $(RIOT_PROVISIONING_PROFILE)
 PROVISIONING_PROFILE_SPECIFIER = $(RIOT_PROVISIONING_PROFILE_SPECIFIER)

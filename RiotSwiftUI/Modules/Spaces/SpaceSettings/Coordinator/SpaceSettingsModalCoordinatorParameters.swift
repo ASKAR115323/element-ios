@@ -28,6 +28,6 @@ struct SpaceSettingsModalCoordinatorParameters {
         self.session = session
         self.spaceId = spaceId
         self.parentSpaceId = parentSpaceId
-        self.navigationRouter = navigationRouter ?? NavigationRouter(navigationController: RiotNavigationController())
+        self.navigationRouter = navigationRouter ?? NavigationRouter(navigationController: ElementNavigationController())
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 /**
- Provides the locale logic for Riot app based on mx languages.
+ Provides the locale logic for Element app based on mx languages.
  */
 class LocaleProvider: LocaleProviderType {
     static var locale: Locale? {

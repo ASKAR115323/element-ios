@@ -7,7 +7,7 @@
 
 import XCTest
 
-@testable import RiotSwiftUI
+@testable import ElementSwiftUI
 
 class AuthenticationTermsViewModelTests: XCTestCase {
     // Nothing to test as the checkbox binds to the model directly, the view model never mutates the model

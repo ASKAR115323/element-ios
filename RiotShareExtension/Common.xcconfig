@@ -20,17 +20,17 @@
 #include "Config/AppIdentifiers.xcconfig"
 #include "Config/AppVersion.xcconfig"
 
-PRODUCT_NAME = RiotShareExtension
+PRODUCT_NAME = ElementShareExtension
 PRODUCT_BUNDLE_IDENTIFIER = $(BASE_BUNDLE_IDENTIFIER).shareExtension
 
-INFOPLIST_FILE = RiotShareExtension/SupportingFiles/Info.plist
+INFOPLIST_FILE = ElementShareExtension/SupportingFiles/Info.plist
 ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon
 
-CODE_SIGN_ENTITLEMENTS = RiotShareExtension/SupportingFiles/RiotShareExtension.entitlements
+CODE_SIGN_ENTITLEMENTS = ElementShareExtension/SupportingFiles/ElementShareExtension.entitlements
         
 APPLICATION_EXTENSION_API_ONLY = YES
 SKIP_INSTALL = YES
-SWIFT_OBJC_BRIDGING_HEADER = $(SRCROOT)/$(PRODUCT_NAME)/SupportingFiles/RiotShareExtension-Bridging-Header.h
+SWIFT_OBJC_BRIDGING_HEADER = $(SRCROOT)/$(PRODUCT_NAME)/SupportingFiles/ElementShareExtension-Bridging-Header.h
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) IS_SHARE_EXTENSION=1
 LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/Frameworks @executable_path/../../Frameworks
 

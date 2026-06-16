@@ -3643,7 +3643,7 @@ public class VectorL10n: NSObject {
   public static var majorUpdateLearnMoreAction: String { 
     return VectorL10n.tr("Vector", "major_update_learn_more_action") 
   }
-  /// Riot is now %@
+  /// Element is now %@
   public static func majorUpdateTitle(_ p1: String) -> String {
     return VectorL10n.tr("Vector", "major_update_title", p1)
   }

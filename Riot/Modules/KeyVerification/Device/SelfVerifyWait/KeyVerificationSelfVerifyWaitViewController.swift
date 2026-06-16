@@ -133,7 +133,7 @@ final class KeyVerificationSelfVerifyWaitViewController: UIViewController {
             self.cancelBarButtonItem = cancelBarButtonItem
             
             self.resetSecretsButton.vc_enableMultiLinesTitle()
-            self.resetSecretsButton.isHidden = !RiotSettings.shared.secretsRecoveryAllowReset
+            self.resetSecretsButton.isHidden = !ElementSettings.shared.secretsRecoveryAllowReset
         }
         
         self.titleLabel.text = VectorL10n.deviceVerificationSelfVerifyOpenOnOtherDeviceTitle(AppInfo.current.displayName)

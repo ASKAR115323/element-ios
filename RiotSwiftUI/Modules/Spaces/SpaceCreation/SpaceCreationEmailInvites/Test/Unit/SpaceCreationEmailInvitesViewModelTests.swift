@@ -10,7 +10,7 @@
 import Combine
 import XCTest
 
-@testable import RiotSwiftUI
+@testable import ElementSwiftUI
 
 class SpaceCreationEmailInvitesViewModelTests: XCTestCase {
     var creationParameters = SpaceCreationParameters()

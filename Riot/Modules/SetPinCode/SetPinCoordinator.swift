@@ -44,7 +44,7 @@ final class SetPinCoordinator: SetPinCoordinatorType {
     // MARK: - Setup
     
     init(session: MXSession?, viewMode: SetPinCoordinatorViewMode, pinCodePreferences: PinCodePreferences) {
-        self.navigationRouter = NavigationRouter(navigationController: RiotNavigationController())
+        self.navigationRouter = NavigationRouter(navigationController: ElementNavigationController())
         self.session = session
         self.viewMode = viewMode
         self.pinCodePreferences = pinCodePreferences

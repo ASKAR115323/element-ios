@@ -32,7 +32,7 @@ final class ThreadsBetaCoordinator: NSObject, ThreadsBetaCoordinatorProtocol {
         let result = ThreadsBetaViewController.instantiate(infoText: infoText, additionalText: additionalText)
         result.didTapEnableButton = { [weak self] in
             guard let self = self else { return }
-            RiotSettings.shared.enableThreads = true
+            ElementSettings.shared.enableThreads = true
             MXSDKOptions.sharedInstance().enableThreads = true
             self.delegate?.threadsBetaCoordinatorDidTapEnable(self)
         }

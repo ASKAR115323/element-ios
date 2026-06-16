@@ -273,8 +273,8 @@ final class JitsiService: NSObject {
         }
         
         // Build widget url
-        // Riot-iOS does not directly use it but extracts params from it (see `[JitsiViewController openWidget:withVideo:]`)
-        // This url can be used as is inside a web container (like iframe for Riot-web)
+        // Element-iOS does not directly use it but extracts params from it (see `[JitsiViewController openWidget:withVideo:]`)
+        // This url can be used as is inside a web container (like iframe for Element-web)
         
         // Build it from the riot-web app
         let appUrlString = BuildSettings.applicationWebAppUrlString

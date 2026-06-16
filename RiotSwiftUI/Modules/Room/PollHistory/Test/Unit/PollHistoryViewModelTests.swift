@@ -6,7 +6,7 @@
 //
 
 import Combine
-@testable import RiotSwiftUI
+@testable import ElementSwiftUI
 import XCTest
 
 final class PollHistoryViewModelTests: XCTestCase {

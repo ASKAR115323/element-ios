@@ -7,7 +7,7 @@
 
 import XCTest
 
-@testable import RiotSwiftUI
+@testable import ElementSwiftUI
 
 class AuthenticationForgotPasswordViewModelTests: XCTestCase {
     var viewModel: AuthenticationForgotPasswordViewModelProtocol!

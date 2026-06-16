@@ -101,7 +101,7 @@ final class RoomInfoCoordinator: NSObject, RoomInfoCoordinatorType {
         if let navigationRouter = navigationRouter {
             self.navigationRouter = navigationRouter
         } else {
-            self.navigationRouter = NavigationRouter(navigationController: RiotNavigationController())
+            self.navigationRouter = NavigationRouter(navigationController: ElementNavigationController())
         }
 
         self.session = parameters.session

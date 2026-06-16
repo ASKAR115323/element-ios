@@ -7,9 +7,9 @@ Please see LICENSE in the repository root for full details.
 
 import Foundation
 
-/// Store Riot specific app settings.
+/// Store Element specific app settings.
 @objcMembers
-final class RiotSettings: NSObject {
+final class ElementSettings: NSObject {
     
     // MARK: - Constants
     
@@ -26,12 +26,12 @@ final class RiotSettings: NSObject {
         static let showIPAddressesInSessionsManager = "showIPAddressesInSessionsManager"
     }
     
-    static let shared = RiotSettings()
+    static let shared = ElementSettings()
     
     /// UserDefaults to be used on reads and writes.
     static var defaults: UserDefaults = {
         guard let userDefaults = UserDefaults(suiteName: BuildSettings.applicationGroupIdentifier) else {
-            fatalError("[RiotSettings] Fail to load shared UserDefaults")
+            fatalError("[ElementSettings] Fail to load shared UserDefaults")
         }
         return userDefaults
     }()
@@ -42,7 +42,7 @@ final class RiotSettings: NSObject {
     
     /// Indicate if UserDefaults suite has been migrated once.
     var isUserDefaultsMigrated: Bool {
-        return RiotSettings.defaults.object(forKey: UserDefaultsKeys.notificationsShowDecryptedContent) != nil
+        return ElementSettings.defaults.object(forKey: UserDefaultsKeys.notificationsShowDecryptedContent) != nil
     }
     
     func migrate() {
@@ -52,7 +52,7 @@ final class RiotSettings: NSObject {
         //  write values to suite
         //  remove redundant values from standard
         for (key, value) in dictionary {
-            RiotSettings.defaults.set(value, forKey: key)
+            ElementSettings.defaults.set(value, forKey: key)
             UserDefaults.standard.removeObject(forKey: key)
         }
     }
@@ -69,7 +69,7 @@ final class RiotSettings: NSObject {
     
     /// Indicate if `showDecryptedContentInNotifications` settings has been set once.
     var isShowDecryptedContentInNotificationsHasBeenSetOnce: Bool {
-        return RiotSettings.defaults.object(forKey: UserDefaultsKeys.notificationsShowDecryptedContent) != nil
+        return ElementSettings.defaults.object(forKey: UserDefaultsKeys.notificationsShowDecryptedContent) != nil
     }
     
     /// Indicate if notifications should be shown whilst the app is in the foreground.
@@ -97,18 +97,18 @@ final class RiotSettings: NSObject {
     
     /// Whether the user was previously shown the Matomo analytics prompt.
     var hasSeenAnalyticsPrompt: Bool {
-        RiotSettings.defaults.object(forKey: UserDefaultsKeys.enableAnalytics) != nil
+        ElementSettings.defaults.object(forKey: UserDefaultsKeys.enableAnalytics) != nil
     }
     
     /// Whether the user has both seen the Matomo analytics prompt and declined it.
     var hasDeclinedMatomoAnalytics: Bool {
-        RiotSettings.defaults.object(forKey: UserDefaultsKeys.matomoAnalytics) != nil && !RiotSettings.defaults.bool(forKey: UserDefaultsKeys.matomoAnalytics)
+        ElementSettings.defaults.object(forKey: UserDefaultsKeys.matomoAnalytics) != nil && !ElementSettings.defaults.bool(forKey: UserDefaultsKeys.matomoAnalytics)
     }
     
     /// Whether the user previously accepted the Matomo analytics prompt.
     /// This allows these users to be shown a different prompt to explain the changes.
     var hasAcceptedMatomoAnalytics: Bool {
-        RiotSettings.defaults.bool(forKey: UserDefaultsKeys.matomoAnalytics)
+        ElementSettings.defaults.bool(forKey: UserDefaultsKeys.matomoAnalytics)
     }
     
     /// `true` when the user has opted in to send analytics.
@@ -152,7 +152,7 @@ final class RiotSettings: NSObject {
     @UserDefault(key: UserDefaultsKeys.enableLiveLocationSharing, defaultValue: false, storage: defaults)
     var enableLiveLocationSharing {
         didSet {
-            NotificationCenter.default.post(name: RiotSettings.didUpdateLiveLocationSharingActivation, object: self)
+            NotificationCenter.default.post(name: ElementSettings.didUpdateLiveLocationSharingActivation, object: self)
         }
     }
 
@@ -187,7 +187,7 @@ final class RiotSettings: NSObject {
     
     /// Indicate if `allowStunServerFallback` settings has been set once.
     var isAllowStunServerFallbackHasBeenSetOnce: Bool {
-        return RiotSettings.defaults.object(forKey: UserDefaultsKeys.allowStunServerFallback) != nil
+        return ElementSettings.defaults.object(forKey: UserDefaultsKeys.allowStunServerFallback) != nil
     }
     
     @UserDefault(key: UserDefaultsKeys.allowStunServerFallback, defaultValue: false, storage: defaults)
@@ -395,7 +395,7 @@ final class RiotSettings: NSObject {
     
 }
 
-// MARK: - RiotSettings notification constants
-extension RiotSettings {
-    public static let didUpdateLiveLocationSharingActivation = Notification.Name("RiotSettingsDidUpdateLiveLocationSharingActivation")
+// MARK: - ElementSettings notification constants
+extension ElementSettings {
+    public static let didUpdateLiveLocationSharingActivation = Notification.Name("ElementSettingsDidUpdateLiveLocationSharingActivation")
 }

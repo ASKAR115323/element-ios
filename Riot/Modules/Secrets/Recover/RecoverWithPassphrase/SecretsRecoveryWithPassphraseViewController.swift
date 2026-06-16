@@ -121,7 +121,7 @@ final class SecretsRecoveryWithPassphraseViewController: UIViewController {
                 
         self.resetSecretsButton.vc_enableMultiLinesTitle()
         
-        self.resetSecretsButton.isHidden = !RiotSettings.shared.secretsRecoveryAllowReset
+        self.resetSecretsButton.isHidden = !ElementSettings.shared.secretsRecoveryAllowReset
     }
     
     private func update(theme: Theme) {

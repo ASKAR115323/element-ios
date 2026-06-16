@@ -79,11 +79,11 @@ extension UISIAutoReportData: Codable {
                 self.sendMatchingRageShake(source: $0)
             }.store(in: &cancellables)
         
-        self.enabled = RiotSettings.shared.enableUISIAutoReporting
-        RiotSettings.shared.publisher(for: RiotSettings.UserDefaultsKeys.enableUISIAutoReporting)
+        self.enabled = ElementSettings.shared.enableUISIAutoReporting
+        ElementSettings.shared.publisher(for: ElementSettings.UserDefaultsKeys.enableUISIAutoReporting)
             .sink {  [weak self] _ in
                 guard let self = self else { return }
-                self.enabled = RiotSettings.shared.enableUISIAutoReporting
+                self.enabled = ElementSettings.shared.enableUISIAutoReporting
             }
             .store(in: &cancellables)
     }

@@ -39,6 +39,6 @@ struct SpaceCreationCoordinatorParameters {
          navigationRouter: NavigationRouterType? = nil) {
         self.session = session
         self.parentSpaceId = parentSpaceId
-        self.navigationRouter = navigationRouter ?? NavigationRouter(navigationController: RiotNavigationController())
+        self.navigationRouter = navigationRouter ?? NavigationRouter(navigationController: ElementNavigationController())
     }
 }

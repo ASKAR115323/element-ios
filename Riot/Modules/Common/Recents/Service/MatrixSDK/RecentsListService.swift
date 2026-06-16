@@ -147,7 +147,7 @@ public class RecentsListService: NSObject, RecentsListServiceProtocol {
     }
     
     private var showAllRoomsInHomeSpace: Bool {
-        return RiotSettings.shared.showAllRoomsInHomeSpace
+        return ElementSettings.shared.showAllRoomsInHomeSpace
     }
     
     // swiftlint:disable weak_delegate
@@ -161,13 +161,13 @@ public class RecentsListService: NSObject, RecentsListServiceProtocol {
     private var sortOptions: MXRoomListDataSortOptions {
         switch mode {
         case .home:
-            let pinMissed = RiotSettings.shared.pinRoomsWithMissedNotificationsOnHome
-            let pinUnread = RiotSettings.shared.pinRoomsWithUnreadMessagesOnHome
+            let pinMissed = ElementSettings.shared.pinRoomsWithMissedNotificationsOnHome
+            let pinUnread = ElementSettings.shared.pinRoomsWithUnreadMessagesOnHome
             return MXRoomListDataSortOptions(missedNotificationsFirst: pinMissed,
                                              unreadMessagesFirst: pinUnread)
         case .allChats:
-            let pinMissed = RiotSettings.shared.pinRoomsWithMissedNotificationsOnHome
-            let pinUnread = RiotSettings.shared.pinRoomsWithUnreadMessagesOnHome
+            let pinMissed = ElementSettings.shared.pinRoomsWithMissedNotificationsOnHome
+            let pinUnread = ElementSettings.shared.pinRoomsWithUnreadMessagesOnHome
             switch AllChatsLayoutSettingsManager.shared.allChatLayoutSettings.sorting {
             case .alphabetical:
                 return MXRoomListDataSortOptions(invitesFirst: false,
@@ -213,7 +213,7 @@ public class RecentsListService: NSObject, RecentsListServiceProtocol {
         self.space = space
         super.init()
         createFetchers()
-        addRiotSettingsObserver()
+        addElementSettingsObserver()
         addSessionStateObserver()
         
         allChatLayoutSettingsManagerObserver = NotificationCenter.default.addObserver(forName: AllChatsLayoutSettingsManager.didUpdateSettings, object: nil, queue: OperationQueue.main) { [weak self] notification in
@@ -351,7 +351,7 @@ public class RecentsListService: NSObject, RecentsListServiceProtocol {
     
     public func stop() {
         removeSessionStateObserver()
-        removeRiotSettingsObserver()
+        removeElementSettingsObserver()
         removeAllDelegates()
         allFetchers.forEach({ $0.stop() })
         
@@ -384,16 +384,16 @@ public class RecentsListService: NSObject, RecentsListServiceProtocol {
         multicastDelegate.removeAllDelegates()
     }
     
-    //  MARK: - Riot Settings Observer
+    //  MARK: - Element Settings Observer
     
-    private func addRiotSettingsObserver() {
+    private func addElementSettingsObserver() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(userDefaultsUpdated(_:)),
                                                name: .userDefaultValueUpdated,
                                                object: nil)
     }
     
-    private func removeRiotSettingsObserver() {
+    private func removeElementSettingsObserver() {
         NotificationCenter.default.removeObserver(self,
                                                   name: .userDefaultValueUpdated,
                                                   object: nil)
@@ -405,10 +405,10 @@ public class RecentsListService: NSObject, RecentsListServiceProtocol {
             return
         }
         switch key {
-        case RiotSettings.UserDefaultsKeys.pinRoomsWithMissedNotificationsOnHome,
-             RiotSettings.UserDefaultsKeys.pinRoomsWithUnreadMessagesOnHome:
+        case ElementSettings.UserDefaultsKeys.pinRoomsWithMissedNotificationsOnHome,
+             ElementSettings.UserDefaultsKeys.pinRoomsWithUnreadMessagesOnHome:
             refresh()
-        case RiotSettings.UserDefaultsKeys.showAllRoomsInHomeSpace:
+        case ElementSettings.UserDefaultsKeys.showAllRoomsInHomeSpace:
             refresh()
         default:
             break

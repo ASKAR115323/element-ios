@@ -65,7 +65,7 @@ final class SplitViewCoordinator: NSObject, SplitViewCoordinatorType {
     init(parameters: SplitViewCoordinatorParameters) {
         self.parameters = parameters
         
-        let splitViewController = RiotSplitViewController()
+        let splitViewController = ElementSplitViewController()
         splitViewController.preferredDisplayMode = .allVisible
         self.splitViewController = splitViewController
     }
@@ -90,7 +90,7 @@ final class SplitViewCoordinator: NSObject, SplitViewCoordinatorType {
             
             // Create secondary controller
             let placeholderDetailViewController = self.createPlaceholderDetailsViewController()
-            let detailNavigationController = RiotNavigationController(rootViewController: placeholderDetailViewController)
+            let detailNavigationController = ElementNavigationController(rootViewController: placeholderDetailViewController)
             
             // Setup split view controller
             self.splitViewController.viewControllers = [masterCoordinator.toPresentable(), detailNavigationController]

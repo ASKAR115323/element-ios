@@ -5,7 +5,7 @@
 // Please see LICENSE files in the repository root for full details.
 //
 
-import RiotSwiftUI
+import ElementSwiftUI
 import XCTest
 
 class OnboardingCongratulationsUITests: MockScreenTestCase {

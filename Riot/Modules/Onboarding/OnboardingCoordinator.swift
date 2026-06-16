@@ -26,7 +26,7 @@ struct OnboardingCoordinatorParameters {
     let router: NavigationRouterType
     
     init(router: NavigationRouterType? = nil) {
-        self.router = router ?? NavigationRouter(navigationController: RiotNavigationController(isLockedToPortraitOnPhone: true))
+        self.router = router ?? NavigationRouter(navigationController: ElementNavigationController(isLockedToPortraitOnPhone: true))
     }
 }
 

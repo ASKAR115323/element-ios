@@ -64,7 +64,7 @@ final class EditHistoryCoordinatorBridgePresenter: NSObject {
         let editHistoryCoordinator = EditHistoryCoordinator(session: self.session, formatter: formatter, event: self.event)
         editHistoryCoordinator.delegate = self
 
-        let navigationController = RiotNavigationController(rootViewController: editHistoryCoordinator.toPresentable())
+        let navigationController = ElementNavigationController(rootViewController: editHistoryCoordinator.toPresentable())
         navigationController.modalPresentationStyle = .formSheet
         viewController.present(navigationController, animated: animated, completion: nil)
         
