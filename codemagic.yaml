@@ -1,0 +1,22 @@
+workflows:
+  ios-build:
+    name: iOS Build (Test Compilation)
+    environment:
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Install CocoaPods dependencies
+        script: pod install --repo-update
+      - name: Build without signing (test only)
+        script: |
+          xcodebuild -workspace Element.xcworkspace \
+            -scheme Element \
+            -sdk iphoneos \
+            -configuration Release \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGN_ENTITLEMENTS="" \
+            build
+    artifacts:
+      - build/Release-iphoneos/*.app
