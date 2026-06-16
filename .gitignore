@@ -48,3 +48,4 @@ fastlane/Preview.html
 fastlane/metadata/
 
 provisioning_profiles/
+Podfile.lock # добавим в игнорирование
