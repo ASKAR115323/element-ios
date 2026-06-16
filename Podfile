@@ -27,7 +27,7 @@ def import_SwiftUI_pods
     pod 'ZXingObjC', '~> 3.6.9'
 end
 
-abstract_target 'RiotPods' do
+abstract_target 'ElementPods' do
 
   pod 'GBDeviceInfo', '~> 7.1.0'
   pod 'Reusable', '~> 4.1'
@@ -43,7 +43,7 @@ abstract_target 'RiotPods' do
   pod 'SwiftLint'
   pod 'SwiftFormat/CLI'
 
-  target "Riot" do
+  target "Element" do
     import_MatrixSDK
     import_MatrixKit_pods
 
@@ -61,20 +61,20 @@ abstract_target 'RiotPods' do
     
     pod 'FLEX', '~> 5.22.10', :configurations => ['Debug'], :inhibit_warnings => true
 
-    target 'RiotTests' do
+    target 'ElementTests' do
       inherit! :search_paths
     end
   end
 
-  target "RiotSwiftUI" do
+  target "ElementSwiftUI" do
     import_SwiftUI_pods
   end
 
-  target "RiotSwiftUITests" do
+  target "ElementSwiftUITests" do
     import_SwiftUI_pods
   end
 
-  target "RiotNSE" do
+  target "ElementNSE" do
     import_MatrixSDK
     import_MatrixKit_pods
   end
@@ -85,7 +85,7 @@ abstract_target 'RiotPods' do
 
   # Disabled due to crypto corruption issues.
   # https://github.com/element-hq/element-ios/issues/7618
-  # target "RiotShareExtension" do
+  # target "ElementShareExtension" do
   #   import_MatrixSDK
   #   import_MatrixKit_pods
   # end
