@@ -1,17 +1,15 @@
 workflows:
   ios-build:
-    name: iOS Build (Test Compilation)
+    name: "iOS Build"
     environment:
       xcode: latest
       cocoapods: default
-    cache:
-      disable_cache: true
     scripts:
-      - name: Clean and install CocoaPods
+      - name: Clean and install pods
         script: |
           rm -rf Pods Podfile.lock
           pod install --repo-update
-      - name: Build without signing (test only)
+      - name: Build without signing
         script: |
           xcodebuild -workspace Element.xcworkspace \
             -scheme Element \
