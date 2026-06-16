@@ -4,9 +4,13 @@ workflows:
     environment:
       xcode: latest
       cocoapods: default
+    cache:
+      disable_cache: true
     scripts:
-      - name: Install CocoaPods dependencies
-        script: pod install --repo-update
+      - name: Clean and install CocoaPods
+        script: |
+          rm -rf Pods Podfile.lock
+          pod install --repo-update
       - name: Build without signing (test only)
         script: |
           xcodebuild -workspace Element.xcworkspace \
